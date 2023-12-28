@@ -1,0 +1,33 @@
+# Copyright The OpenTelemetry Authors
+# SPDX-License-Identifier: Apache-2.0
+# extra settings to be merged into OpenTelemetry Collector configuration
+# do not delete this file
+exporters: 
+  # otlp/http exporter to Dynatrace. 
+  otlphttp/dynatrace: 
+   endpoint: "${DT_OTLP_ENDPOINT}" 
+   headers: 
+    Authorization: "Api-Token ${DT_API_TOKEN}" 
+
+processors: 
+  cumulativetodelta: 
+  filter/histograms: 
+    error_mode: ignore 
+    metrics: 
+      metric: 
+          - 'type == METRIC_DATA_TYPE_HISTOGRAM' 
+ 
+service: 
+  pipelines: 
+    traces/dynatrace: 
+      receivers: [otlp] 
+      processors: [batch] 
+      exporters: [otlphttp/dynatrace] 
+    metrics/dynatrace: 
+      receivers: [otlp, spanmetrics] 
+      processors: [filter/histograms, batch, cumulativetodelta] 
+      exporters: [otlphttp/dynatrace] 
+    logs/dynatrace: 
+      receivers: [otlp] 
+      processors: [batch] 
+      exporters: [otlphttp/dynatrace] 

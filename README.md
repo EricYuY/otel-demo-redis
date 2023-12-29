@@ -10,7 +10,7 @@ Referencia - [Dynatrace](https://www.dynatrace.com/news/blog/opentelemetry-demo-
 ## Arquitectura
 El lab está basado en la Demo de OpenTelemetry, modificada para agregar un servicio de Redis que se comunica con el adService (JAVA):
 
-![image](https://github.com/DT-Team-Peru/otel-demo-redisson/assets/116733103/30218d62-1230-4b75-b4e0-3e1d6ecb1afa)
+![Captura de pantalla 2023-12-29 144351](https://github.com/EricYuY/otel-demo-redis/assets/73684844/4329ceb3-c94c-4cc8-8edd-0c5cc6ce2da3)
 
 
 ## Prequesitos:

@@ -22,7 +22,7 @@ Pasos para replicar:
 
 ## 1. Clonar repositorio
 ```
-git clone https://github.com/DT-Team-Peru/otel-demo-redisson.git
+git clone https://github.com/EricYuY/otel-demo-redis.git
 ```
 ## 2. Instalar agente DT, para Docker: 
 ```
